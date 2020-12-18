@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_qr/screens/landing_screen.dart';
+import 'package:qr_penguin/screens/landing_screen.dart';
 
 void main() {
   runApp(MyApp());

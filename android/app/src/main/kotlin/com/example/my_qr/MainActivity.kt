@@ -1,4 +1,4 @@
-package com.example.my_qr
+package com.example.qr-penguin
 
 import io.flutter.embedding.android.FlutterActivity
 
