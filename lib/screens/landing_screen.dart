@@ -1,0 +1,38 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:my_qr/constants.dart';
+import 'package:my_qr/size_config.dart';
+import 'package:my_qr/widgets/background.dart';
+
+class LandingScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    SizeConfig().init(context);
+    return Background(
+      child: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Padding(
+              padding: EdgeInsets.only(bottom: getPercentageOfHeight(5)),
+              // Penguin Designed by catalyststuff / Freepik
+              child: Hero(
+                tag: 'penguin',
+                child: SvgPicture.asset('assets/images/penguin.svg'),
+              ),
+            ),
+            Padding(
+              padding:
+                  EdgeInsets.only(bottom: getPercentageOfHeight(5), left: 5),
+              child: Hero(
+                tag: 'title',
+                child: SvgPicture.asset('assets/images/title.svg'),
+              ),
+            ),
+            SvgPicture.asset('assets/images/get-started.svg'),
+          ],
+        ),
+      ),
+    );
+  }
+}
