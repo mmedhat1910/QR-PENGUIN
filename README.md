@@ -15,5 +15,4 @@ v0.0.1 - [Chnage log](CHANGELOG.md)
 ## License and Copyrights
 
 Copyrights &copy; 2020
-
-[MIT Licence](LICENSE)
+This project is licensed under the terms of the [MIT Licence](LICENSE).
