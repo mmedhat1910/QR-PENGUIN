@@ -38,7 +38,11 @@ class _LandingScreenState extends State<LandingScreen> {
             ),
             GestureDetector(
               onTap: () {
-                Navigator.pushNamed(context, HomeScreen.id);
+                Navigator.push(
+                  context,
+                  PageRouteBuilder(
+                      pageBuilder: (context, a, b) => HomeScreen()),
+                );
               },
               child: SvgPicture.asset('assets/images/get-started.svg'),
             ),

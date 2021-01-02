@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:qr_penguin/screens/generate_screen.dart';
 import 'package:qr_penguin/screens/home_screen.dart';
 import 'package:qr_penguin/screens/landing_screen.dart';
+import 'package:qr_penguin/screens/scan_screen.dart';
 
 void main() {
   runApp(MyApp());

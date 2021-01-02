@@ -2,33 +2,14 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:qr_penguin/constants.dart';
-import 'package:qr_penguin/functions.dart';
 import 'package:qr_penguin/screens/generate_screen.dart';
 import 'package:qr_penguin/size_config.dart';
-import 'package:qr_penguin/widgets/background.dart';
-
-class HomeScreen extends StatefulWidget {
-  static const String id = 'HomeScreen';
-  @override
-  _HomeScreenState createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
-  refresh() {
-    setState(() {});
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Background(
-      child: BaseScreen(),
-    );
-  }
-}
 
 class BaseScreen extends StatefulWidget {
+  final Widget activeScreen;
   const BaseScreen({
     Key key,
+    this.activeScreen,
   }) : super(key: key);
 
   @override
@@ -92,7 +73,7 @@ class _BaseScreenState extends State<BaseScreen> {
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(vertical: getPercentageOfHeight(10)),
-          child: GenerateQRScreen(),
+          child: widget.activeScreen,
         ),
       ),
     );
