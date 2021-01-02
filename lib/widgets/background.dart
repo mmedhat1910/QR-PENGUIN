@@ -23,13 +23,14 @@ class Background extends StatelessWidget {
         children: [
           Positioned(
             bottom: 0.0,
+            left: 0.0,
             child: SvgPicture.asset(
               'assets/images/curve.svg',
               color: Color(0x408938CC),
               allowDrawingOutsideViewBox: true,
             ),
           ),
-          SafeArea(child: child)
+          child
         ],
       ),
     );

@@ -6,3 +6,6 @@ Color kMainDark = Color(0xFF8938CC);
 
 Color kSecondary = Color(0xFFFFB127);
 Color kTertiary = Color(0xFF6A5B75);
+
+TextStyle kHeader1 = TextStyle(fontSize: 30.0, fontFamily: 'Montserrat');
+TextStyle kHeader3 = TextStyle(fontSize: 20.0, fontFamily: 'Montserrat');

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:qr_penguin/screens/home_screen.dart';
 import 'package:qr_penguin/screens/landing_screen.dart';
 
 void main() {
@@ -15,7 +16,11 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: LandingScreen(),
+      initialRoute: LandingScreen.id,
+      routes: {
+        LandingScreen.id: (context) => LandingScreen(),
+        HomeScreen.id: (context) => HomeScreen(),
+      },
     );
   }
 }
