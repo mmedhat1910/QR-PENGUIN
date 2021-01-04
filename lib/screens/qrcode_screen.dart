@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:qr_flutter/qr_flutter.dart';
-import 'package:qr_penguin/constants.dart';
+import 'package:qr_penguin/reusables/constants.dart';
 import 'package:qr_penguin/widgets/background.dart';
-import 'package:qr_penguin/widgets/cool_button.dart';
-
-import '../size_config.dart';
+import 'package:qr_penguin/widgets/main_app_bar.dart';
+import 'package:qr_penguin/widgets/utilities_bar.dart';
+import '../reusables/size_config.dart';
 
 class QRCodeScreen extends StatefulWidget {
   final String input;
@@ -45,56 +45,29 @@ class _QRCodeScreenState extends State<QRCodeScreen> {
     return Background(
       child: Scaffold(
         backgroundColor: Colors.transparent,
-        appBar: AppBar(
-          backgroundColor: Color(0x0000000),
-          elevation: 0,
-          leading: Hero(
-            tag: 'penguin',
-            child: Padding(
-              padding: EdgeInsets.only(left: 20),
-              child: GestureDetector(
-                onTap: () => Navigator.pop(context),
-                child: SvgPicture.asset(
-                  'assets/images/penguin.svg',
-                  allowDrawingOutsideViewBox: true,
-                ),
-              ),
-            ),
-          ),
-          leadingWidth: 100,
-          actions: [
-            Padding(
-              padding: EdgeInsets.only(right: 20.0),
-              child: IconButton(
-                icon: Icon(
-                  Icons.info_outline,
-                  size: 30,
-                ),
-                onPressed: () {},
-              ),
-            ),
-          ],
-          title: Text('QR PENGUIN'),
-        ),
+        appBar: MainAppBar(appBar: AppBar()),
         body: SafeArea(
           child: SingleChildScrollView(
             child: Column(
               children: [
-                GestureDetector(
-                  onTap: () => Navigator.pop(context),
-                  child: Row(
-                    children: [
-                      Icon(
-                        Icons.arrow_back_ios_outlined,
-                        size: 20,
-                        color: Colors.white,
-                      ),
-                      Text(
-                        'Back',
-                        style: kHeader3.copyWith(
-                            color: Colors.white, fontSize: 25),
-                      ),
-                    ],
+                Padding(
+                  padding: EdgeInsets.all(getPercentageOfWidth(5)),
+                  child: GestureDetector(
+                    onTap: () => Navigator.pop(context),
+                    child: Row(
+                      children: [
+                        Icon(
+                          Icons.arrow_back_ios_outlined,
+                          size: 20,
+                          color: Colors.white,
+                        ),
+                        Text(
+                          'Back',
+                          style: kHeader3.copyWith(
+                              color: Colors.white, fontSize: 25),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
 
@@ -177,16 +150,23 @@ class _QRCodeScreenState extends State<QRCodeScreen> {
                   ),
                 ),
 
-                QrImage(
-                  data: widget.input,
-                  version: QrVersions.auto,
-                  size: getPercentageOfWidth(70),
-                  foregroundColor: currentFGColor,
-                  backgroundColor: currentBGColor,
+                Padding(
+                  padding:
+                      EdgeInsets.symmetric(vertical: getPercentageOfHeight(5)),
+                  child: QrImage(
+                    data: widget.input,
+                    version: QrVersions.auto,
+                    size: getPercentageOfWidth(70),
+                    foregroundColor: currentFGColor,
+                    backgroundColor: currentBGColor,
+                  ),
                 ),
                 Padding(
-                  padding: EdgeInsets.symmetric(
-                      horizontal: getPercentageOfWidth(20)),
+                  padding: EdgeInsets.only(
+                    right: getPercentageOfWidth(20),
+                    left: getPercentageOfWidth(20),
+                    bottom: getPercentageOfHeight(2),
+                  ),
                   //Color Changing
                   child: ExpandablePanel(
                     header: Text(
@@ -306,31 +286,7 @@ class _QRCodeScreenState extends State<QRCodeScreen> {
                   ),
                 ),
                 //Disabled Buttons
-                CoolButton(
-                  onPress: () {},
-                  height: 60,
-                  width: 200,
-                  color: kMainLight,
-                  text: 'Save',
-                  textStyle: kBtnMd.copyWith(color: Colors.white),
-                  icon: Icons.bookmark,
-                  topLeftRadius: 30,
-                  topRightRadius: 30,
-                  highlightColor: kSecondary,
-                ),
-                SizedBox(height: 10),
-                CoolButton(
-                  onPress: () {},
-                  height: 60,
-                  width: 200,
-                  color: kMainLight,
-                  text: 'Share',
-                  textStyle: kBtnMd.copyWith(color: Colors.white),
-                  icon: Icons.share,
-                  bottomLeftRadius: 30,
-                  bottomRightRadius: 30,
-                  highlightColor: kSecondary,
-                )
+                UtilitiesBar(),
               ],
             ),
           ),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:qr_penguin/constants.dart';
-import 'package:qr_penguin/size_config.dart';
+import 'package:qr_penguin/reusables/constants.dart';
+import 'package:qr_penguin/reusables/size_config.dart';
 
 class SavedScans extends StatelessWidget {
   static const id = 'SavedScans';

@@ -1,12 +1,8 @@
-import 'package:expandable/expandable.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_colorpicker/flutter_colorpicker.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:qr_flutter/qr_flutter.dart';
-import 'package:qr_penguin/constants.dart';
+import 'package:qr_penguin/reusables/constants.dart';
 import 'package:qr_penguin/screens/qrcode_screen.dart';
-import 'package:qr_penguin/size_config.dart';
+import 'package:qr_penguin/reusables/size_config.dart';
 import 'package:qr_penguin/widgets/cool_button.dart';
 
 class GenerateQRScreen extends StatefulWidget {
@@ -50,10 +46,7 @@ class _GenerateQRScreenState extends State<GenerateQRScreen> {
             ),
           ),
           SizedBox(
-            height: getPercentageOfHeight(20),
-          ),
-          SizedBox(
-            height: getPercentageOfHeight(5),
+            height: getPercentageOfHeight(15),
           ),
           CoolButton(
             text: 'Generate',
@@ -80,6 +73,12 @@ class _GenerateQRScreenState extends State<GenerateQRScreen> {
               }
             },
           ),
+          SizedBox(height: 20),
+          Container(
+            child: Text('Important facts goes here'),
+          ),
+          // https://timesofindia.indiatimes.com/readersblog/technical-updates-and-product-launches/important-facts-about-qr-codes-27087/
+          // TODO:Important Facts
         ],
       ),
     );

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:qr_penguin/constants.dart';
+import 'package:qr_penguin/reusables/constants.dart';
 
 class Background extends StatelessWidget {
   final Widget child;

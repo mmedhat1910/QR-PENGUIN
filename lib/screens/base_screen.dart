@@ -1,9 +1,8 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:qr_penguin/constants.dart';
-import 'package:qr_penguin/screens/generate_screen.dart';
-import 'package:qr_penguin/size_config.dart';
+import 'package:qr_penguin/reusables/constants.dart';
+import 'package:qr_penguin/reusables/size_config.dart';
 
 class BaseScreen extends StatefulWidget {
   final Widget activeScreen;

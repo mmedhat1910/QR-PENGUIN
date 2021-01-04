@@ -1,11 +1,11 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:qr_penguin/constants.dart';
-import 'package:qr_penguin/functions.dart';
+
+import 'package:qr_penguin/reusables/constants.dart';
 import 'package:qr_penguin/screens/generate_screen.dart';
-import 'package:qr_penguin/size_config.dart';
+import 'package:qr_penguin/reusables/size_config.dart';
 import 'package:qr_penguin/widgets/background.dart';
+import 'package:qr_penguin/widgets/main_app_bar.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String id = 'HomeScreen';
@@ -14,10 +14,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  refresh() {
-    setState(() {});
-  }
-
   @override
   Widget build(BuildContext context) {
     return Background(
@@ -36,10 +32,11 @@ class BaseScreen extends StatefulWidget {
 }
 
 class _BaseScreenState extends State<BaseScreen> {
-  int screenIndex = 2;
+  int screenIndex = 1;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: MainAppBar(appBar: AppBar()),
       backgroundColor: Color(0x00000000),
       bottomNavigationBar: CurvedNavigationBar(
         backgroundColor: kMain,
@@ -56,38 +53,7 @@ class _BaseScreenState extends State<BaseScreen> {
         },
         animationDuration: Duration(milliseconds: 250),
         animationCurve: Curves.easeInOut,
-        index: 2,
-      ),
-      appBar: AppBar(
-        backgroundColor: Color(0x0000000),
-        elevation: 0,
-        leading: Hero(
-          tag: 'penguin',
-          child: Padding(
-            padding: EdgeInsets.only(left: 20),
-            child: GestureDetector(
-              onTap: () => Navigator.pop(context),
-              child: SvgPicture.asset(
-                'assets/images/penguin.svg',
-                allowDrawingOutsideViewBox: true,
-              ),
-            ),
-          ),
-        ),
-        leadingWidth: 100,
-        actions: [
-          Padding(
-            padding: EdgeInsets.only(right: 20.0),
-            child: IconButton(
-              icon: Icon(
-                Icons.info_outline,
-                size: 30,
-              ),
-              onPressed: () {},
-            ),
-          ),
-        ],
-        title: Text('QR PENGUIN'),
+        index: screenIndex,
       ),
       body: SafeArea(
         child: Padding(

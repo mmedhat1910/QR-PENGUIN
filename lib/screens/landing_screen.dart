@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:qr_penguin/constants.dart';
+
 import 'package:qr_penguin/screens/home_screen.dart';
-import 'package:qr_penguin/size_config.dart';
+import 'package:qr_penguin/reusables/size_config.dart';
 import 'package:qr_penguin/widgets/background.dart';
 
 class LandingScreen extends StatefulWidget {
