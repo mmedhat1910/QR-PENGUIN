@@ -10,7 +10,6 @@ const flashOn = 'FLASH ON';
 const flashOff = 'FLASH OFF';
 const frontCamera = 'FRONT CAMERA';
 const backCamera = 'BACK CAMERA';
-var flashIcon = Icons.lightbulb_outline;
 var cameraIcon = Icons.autorenew;
 
 class ScanScreen extends StatefulWidget {
@@ -23,6 +22,7 @@ class ScanScreen extends StatefulWidget {
 class _ScanScreenState extends State<ScanScreen> {
   Barcode result;
   var flashState = flashOn;
+  var flashIcon = Icons.flash_on;
   var cameraState = frontCamera;
   QRViewController controller;
   final GlobalKey qrKey = GlobalKey(debugLabel: 'QR');
@@ -42,11 +42,20 @@ class _ScanScreenState extends State<ScanScreen> {
     return Scaffold(
       body: Column(
         children: <Widget>[
-          Expanded(flex: 4, child: _buildQrView(context)),
           Expanded(
-            flex: 2,
-            child: FittedBox(
-              fit: BoxFit.contain,
+              flex: 4,
+              child: Stack(
+                children: [
+                  _buildQrView(context),
+                  Column(
+                    children: [],
+                  )
+                ],
+              )),
+          Expanded(
+            flex: 1,
+            child: Container(
+              color: kMain,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
@@ -60,7 +69,6 @@ class _ScanScreenState extends State<ScanScreen> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
                       Container(
-                        margin: EdgeInsets.all(8),
                         child: CircularButtonIcon(
                           bgColor: kMainLight,
                           icon: flashIcon,
@@ -68,16 +76,17 @@ class _ScanScreenState extends State<ScanScreen> {
                           iconSize: 32,
                           onPressed: () {
                             if (controller != null) {
-                              controller.toggleFlash();
                               if (_isFlashOn(flashState)) {
+                                controller.toggleFlash();
                                 setState(() {
                                   flashState = flashOff;
-                                  flashIcon = Icons.lightbulb_outline;
+                                  flashIcon = Icons.flash_on;
                                 });
                               } else {
+                                controller.toggleFlash();
                                 setState(() {
                                   flashState = flashOn;
-                                  flashIcon = Icons.lightbulb;
+                                  flashIcon = Icons.flash_off;
                                 });
                               }
                             }
@@ -85,7 +94,6 @@ class _ScanScreenState extends State<ScanScreen> {
                         ),
                       ),
                       Container(
-                        margin: EdgeInsets.all(8),
                         child: CircularButtonIcon(
                           icon: cameraIcon,
                           bgColor: kMainLight,
@@ -106,71 +114,27 @@ class _ScanScreenState extends State<ScanScreen> {
                             }
                           },
                         ),
-                      )
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: <Widget>[
+                      ),
                       Container(
-                        margin: EdgeInsets.all(8),
-                        child: RaisedButton(
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.all(
-                              Radius.circular(10),
-                            ),
-                          ),
-                          color: kMainLight,
+                        child: CircularButtonIcon(
+                          icon: Icons.pause,
+                          bgColor: kMainLight,
+                          iconColor: Colors.white,
+                          iconSize: 32,
                           onPressed: () {
                             controller?.pauseCamera();
                           },
-                          child: Row(
-                            children: [
-                              Icon(
-                                Icons.pause,
-                                color: Colors.white,
-                              ),
-                              Text(
-                                ' Pause',
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white,
-                                ),
-                              ),
-                            ],
-                          ),
                         ),
                       ),
                       Container(
-                        margin: EdgeInsets.all(8),
-                        child: RaisedButton(
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.all(
-                              Radius.circular(10),
-                            ),
-                          ),
-                          color: kMainLight,
+                        child: CircularButtonIcon(
+                          icon: Icons.play_arrow,
+                          bgColor: kMainLight,
+                          iconColor: Colors.white,
+                          iconSize: 32,
                           onPressed: () {
                             controller?.resumeCamera();
                           },
-                          child: Row(
-                            children: [
-                              Icon(
-                                Icons.play_arrow,
-                                color: Colors.white,
-                              ),
-                              Text(
-                                'Resume',
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ],
-                          ),
                         ),
                       )
                     ],
@@ -197,8 +161,8 @@ class _ScanScreenState extends State<ScanScreen> {
     // For this example we check how width or tall the device is and change the scanArea and overlay accordingly.
     var scanArea = (MediaQuery.of(context).size.width < 400 ||
             MediaQuery.of(context).size.height < 400)
-        ? 300.0
-        : 300.0;
+        ? 250.0
+        : 250.0;
     // To ensure the Scanner view is properly sizes after rotation
     // we need to listen for Flutter SizeChanged notification and update controller
     return NotificationListener<SizeChangedLayoutNotification>(

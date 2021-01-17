@@ -20,6 +20,9 @@ class CircularButtonIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialButton(
+      elevation: 5,
+      splashColor: Colors.transparent,
+      focusColor: Colors.transparent,
       onPressed: onPressed,
       child: Container(
         width: radius * 2,
