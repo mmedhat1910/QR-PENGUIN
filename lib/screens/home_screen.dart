@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:qr_penguin/reusables/constants.dart';
 import 'package:qr_penguin/screens/generate_screen.dart';
 import 'package:qr_penguin/reusables/size_config.dart';
+import 'package:qr_penguin/screens/saved_scans.dart';
 import 'package:qr_penguin/screens/scan_screen.dart';
 import 'package:qr_penguin/widgets/background.dart';
 import 'package:qr_penguin/widgets/main_app_bar.dart';
@@ -59,7 +60,9 @@ class _BaseScreenState extends State<BaseScreen> {
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(vertical: getPercentageOfHeight(10)),
-          child: ScanScreen(),
+          child: SavedScans(
+            index: 1,
+          ),
         ),
       ),
     );

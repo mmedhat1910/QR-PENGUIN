@@ -1,11 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:qr_penguin/reusables/constants.dart';
+
 import 'package:qr_penguin/reusables/size_config.dart';
 import 'package:qr_penguin/widgets/circular_button_with_title.dart';
 
 class UtilitiesBar extends StatelessWidget {
+  final Function save;
+  final Function share;
+  final Function download;
   const UtilitiesBar({
     Key key,
+    this.save,
+    this.share,
+    this.download,
   }) : super(key: key);
 
   @override

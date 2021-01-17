@@ -1,9 +1,11 @@
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
-import 'package:flutter_svg/svg.dart';
+
+import 'package:hive/hive.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 import 'package:qr_penguin/reusables/constants.dart';
+import 'package:qr_penguin/reusables/qr_code_data.dart';
 import 'package:qr_penguin/widgets/background.dart';
 import 'package:qr_penguin/widgets/main_app_bar.dart';
 import 'package:qr_penguin/widgets/utilities_bar.dart';
@@ -38,6 +40,10 @@ class _QRCodeScreenState extends State<QRCodeScreen> {
     setState(() {
       BGPickerColor = color;
     });
+  }
+
+  void saveCode(QRCodeData data) {
+    Hive.box('qrcode').add(data);
   }
 
   @override
@@ -286,7 +292,16 @@ class _QRCodeScreenState extends State<QRCodeScreen> {
                   ),
                 ),
                 //Disabled Buttons
-                UtilitiesBar(),
+                UtilitiesBar(
+                  save: () => saveCode(
+                    QRCodeData(
+                      title: title,
+                      url: widget.input,
+                      bgColor: currentBGColor,
+                      fgColor: currentFGColor,
+                    ),
+                  ),
+                ),
               ],
             ),
           ),

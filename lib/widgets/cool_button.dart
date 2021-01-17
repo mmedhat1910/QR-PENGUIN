@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:qr_penguin/reusables/constants.dart';
 
 class CoolButton extends StatelessWidget {
   const CoolButton({
