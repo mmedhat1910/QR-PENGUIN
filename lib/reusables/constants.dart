@@ -38,7 +38,7 @@ TextStyle kCircularButton = TextStyle(
 
 enum screens { scan, saved, generate }
 var screenMap = {
-  screens.saved: SavedScans(index: 2),
+  screens.saved: SavedScans(),
   screens.scan: ScanScreen(),
   screens.generate: GenerateQRScreen()
 };

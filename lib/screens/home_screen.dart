@@ -2,6 +2,7 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 
 import 'package:qr_penguin/reusables/constants.dart';
+import 'package:qr_penguin/reusables/functions.dart';
 import 'package:qr_penguin/screens/generate_screen.dart';
 import 'package:qr_penguin/reusables/size_config.dart';
 import 'package:qr_penguin/screens/saved_scans.dart';
@@ -60,9 +61,11 @@ class _BaseScreenState extends State<BaseScreen> {
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(vertical: getPercentageOfHeight(10)),
-          child: SavedScans(
-            index: 1,
-          ),
+          child: screenIndex == 0
+              ? ScanScreen()
+              : screenIndex == 1
+                  ? GenerateQRScreen()
+                  : SavedScans(),
         ),
       ),
     );

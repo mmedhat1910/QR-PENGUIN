@@ -38,10 +38,8 @@ class _MyAppState extends State<MyApp> {
           }
           // Although opening a Box takes a very short time,
           // we still need to return something before the Future completes.
-          // else
-          return Scaffold(
-            body: Container(color: Colors.red, width: 200),
-          );
+          else
+            return Scaffold();
         },
       ),
     );
