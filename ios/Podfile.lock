@@ -1,7 +1,7 @@
 PODS:
   - Flutter (1.0.0)
   - MTBBarcodeScanner (5.0.11)
-  - qr_code_scanner (0.0.2):
+  - qr_code_scanner (0.2.0):
     - Flutter
     - MTBBarcodeScanner
   - url_launcher (0.0.1):
@@ -27,7 +27,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
   MTBBarcodeScanner: f453b33c4b7dfe545d8c6484ed744d55671788cb
-  qr_code_scanner: 16107718bdad7d708cdf6a5eacdca24b56cdf471
+  qr_code_scanner: bb67d64904c3b9658ada8c402e8b4d406d5d796e
   url_launcher: 6fef411d543ceb26efce54b05a0a40bfd74cbbef
 
 PODFILE CHECKSUM: aafe91acc616949ddb318b77800a7f51bffa2a4c

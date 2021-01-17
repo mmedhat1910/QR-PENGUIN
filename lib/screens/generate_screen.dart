@@ -77,7 +77,7 @@ class _GenerateQRScreenState extends State<GenerateQRScreen> {
           Container(
             child: Text('Important facts goes here'),
           ),
-          // https://timesofindia.indiatimes.com/readersblog/technical-updates-and-product-launches/important-facts-about-qr-codes-27087/
+          //  https://timesofindia.indiatimes.com/readersblog/technical-updates-and-product-launches/important-facts-about-qr-codes-27087/
           // TODO:Important Facts
         ],
       ),
